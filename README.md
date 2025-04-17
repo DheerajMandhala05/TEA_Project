@@ -1,107 +1,143 @@
 # 📊 TEA Strategic Compensation Grant Program Analysis
 
-## 1. **Project Overview**  
-This project analyzes the effectiveness of the **Texas Education Agency's (TEA) Strategic Compensation Grant Program** in improving math performance among students in **grades 3 through 5**.  
+## 1. **Project Overview**
+This project analyzes the effectiveness of the **Texas Education Agency's (TEA) Strategic Compensation Grant Program** in improving math performance among students in **grades 3 through 5**.
 
-**Key Objective**:  
+**🎯 Key Objective:**  
 Determine whether grant-receiving districts outperformed non-participating districts in the **2022–2023 STAAR assessments**.
 
-**Tools Used**:  
+**🛠 Tools Used:**  
 - **SAS**: Data cleaning, transformation, and statistical analysis  
 - **Power BI**: Visualizations and interactive dashboards  
 - **Narrative Report**: Full documentation of methodology and findings  
 
----
-
-## 2. **Data Analysis Summary**  
-
-### **Data Cleaning and Preparation**  
-- **Datasets Imported** (via `PROC IMPORT`):  
-  - STAAR scores  
-  - Grant participation list  
-  - District demographics  
-
-- **Key Transformations**:  
-  - Filtered to **3rd–5th grade math scores (2022–2023)**  
-  - Removed records with missing/zero values in `m_docs`, `m_all_meetsgl_nm`  
-  - Created `percent_meets_math = (m_all_meetsgl_nm / m_docs) * 100`  
-  - Aggregated math performance to district level (`PROC SQL`)  
-  - Standardized district IDs (converted to character format)  
-  - Merged grant/demographic data using `district_char`  
-  - Dropped incomplete records  
-  - Rounded performance metric to **1 decimal place**  
-
-### **Statistical Analysis**  
-- **Two-sample t-test**:  
-  - 🔍 **Key Finding**: Non-grant districts scored **3.4 percentage points higher** on average (*statistically significant*).  
-- **Distribution Checks**:  
-  - Histograms & Q-Q plots for performance metrics  
-- **Summary Statistics**: Generated via `PROC MEANS`  
+🗂 **Primary Files**:  
+- `district_staar_22-23.csv` – STAAR performance data  
+- `grant_district_list.xlsx` – Grant participation list  
+- `All_districts_info_22-23.xlsx` – District demographics  
+- `Final_Analysis_Cleaned.csv` – Final dataset for visuals  
+- `TEA_Narrative_Analysis.pdf` – Full narrative analysis  
+- `Tea_Performance_Task.pbix` – Power BI dashboard  
+- `TEA_SAS_Code.sas` – Reproducible SAS code  
+- `district_staar_22-23_dictionary.xlsx` – Variable reference dictionary  
 
 ---
 
-## 3. **Data Communication & Visualizations**  
+## 2. **Data Analysis Summary**
 
-### **SAS Visuals**  
-- 📊 **Histogram**: Average *% Meets Grade Level* (all districts)  
-- 📦 **Boxplot**: Grant vs. non-grant performance comparison  
-- 📈 **Bar Chart**: Mean performance by grant status (reinforces t-test)  
+### **🧼 Data Cleaning and Preparation**
+- Imported three datasets using `PROC IMPORT`:
+  - **STAAR scores** (`district_staar_22-23.csv`)
+  - **Grant list** (`grant_district_list.xlsx`)
+  - **District demographics** (`All_districts_info_22-23.xlsx`)
 
-### **Power BI Dashboard**  
-- **KPI Cards**: Group averages and difference  
-- **Pie Chart**: District distribution (High/Medium/Low performance)  
-- **Line Chart**: Regional variation by *ESC*  
-- **Interactive Table**: Slicers for district-level exploration  
-- **UI Enhancements**: Icons, tooltips, conditional formatting  
+- Key cleaning/transformation steps:
+  - Filtered to **grades 3–5 math scores (2022–2023)**
+  - Excluded records with missing/0 values in `m_docs`, `m_all_meetsgl_nm`
+  - Created:  
+    ```sas
+    percent_meets_math = (m_all_meetsgl_nm / m_docs) * 100;
+    ```
+  - Aggregated to district level using `PROC SQL`
+  - Standardized `district` ID as `district_char` using `put(district, z6.)`
+  - Merged with grant and demographic data
+  - Dropped incomplete records
+  - Rounded `avg_percent_meets` to **1 decimal**
+  - Labeled fields for clarity
 
----
-
-## 4. **Data & File Inventory**  
-
-| File Name                          | Description                                                                 |
-|------------------------------------|-----------------------------------------------------------------------------|
-| `district_staar_22-23.csv`         | Raw STAAR performance data (math/reading by grade/district)                |
-| `grant_district_list.xlsx`         | Districts receiving TEA grant funding                                      |
-| `All_districts_info_22-23.xlsx`    | Demographic data (e.g., economically disadvantaged %)                      |
-| `Final_Analysis_Cleaned.csv`       | Final cleaned dataset for analysis/dashboards                              |
-| `TEA_Narrative_Analysis.docx`      | Step-by-step narrative with visuals & findings                             |
-| `Tea_Performance_Task_PowerBI.pdf` | Exported Power BI dashboard (PDF)                                          |
-| `tea_strategic_analysis.sas`       | *Optional* SAS code for full reproducibility                               |
-
----
-
-## 5. **Reproduction Instructions**  
-
-### **In SAS**:  
-1. Import datasets (`PROC IMPORT`)  
-2. Filter to **3rd–5th grade math**, exclude missing/0 values  
-3. Create `% Meets` variable → aggregate to district level  
-4. Convert district ID to character format  
-5. Merge with grant/demographic data  
-6. Drop incomplete records  
-7. Run **t-test** and summary stats  
-8. Generate visuals (histograms, boxplots, bar plots)  
-9. Export cleaned dataset  
-
-### **In Power BI**:  
-1. Load `Final_Analysis_Cleaned.csv`  
-2. Create **DAX measures** for grant/non-grant KPIs  
-3. Build visuals:  
-   - KPI Cards  
-   - Pie Chart (performance bands)  
-   - Line Chart (ESC regions)  
-   - Interactive Table  
-4. Add slicers (*ESC Region*, *District Type*)  
-5. Apply conditional formatting/icons  
+### **📊 Statistical Analysis**
+- Conducted **two-sample t-test**:
+  - 🟩 **Non-grant districts scored 3.4 percentage points higher**
+  - 📉 p-value < 0.01 → **statistically significant**
+- Verified assumptions:
+  - **Histograms and Q-Q plots** confirm normality
+- Descriptive statistics via `PROC MEANS` showed:
+  - Avg performance: Grant = 37.5%, Non-Grant = 40.9%
+  - Higher std dev among non-grant districts
 
 ---
 
-## 6. **Best Practices Demonstrated**  
-✔ **Modular SAS Code**: Clear separation of import/transform/analysis steps  
-✔ **Documentation**: Inline comments, labeled variables, dashboard tooltips  
-✔ **Statistical Rigor**: t-test + visual validation (Q-Q plots, histograms)  
-✔ **Collaboration-Ready**: Structured outputs + README for easy reuse  
+## 3. **Data Communication & Visualizations**
+
+### **📌 SAS Visuals (from TEA_SAS_Code.sas)**
+- 📊 **Histogram** – `avg_percent_meets` across all districts  
+- 📦 **Boxplot** – Grant vs. Non-grant performance  
+- 📈 **Bar Chart** – Mean performance by grant status  
+- 📋 **PROC MEANS Table** – Summary statistics  
+
+### **📊 Power BI Dashboard** (`Tea_Performance_Task.pbix`)
+- **KPI Cards** – Grant: 37.5%, Non-Grant: 40.9%, Difference: +3.4%
+- **Pie Chart** – Distribution across performance bands:
+  - High ≥ 60%
+  - Medium: 40–59%
+  - Low: < 40%
+- **Line Chart** – Avg performance by ESC Region
+- **Interactive Table** – View by district, demographics, grant flag
+- **Slicer Filters** – ESC Region, District Type
+- **Icons & Tooltips** – Enhance user navigation and explanations
+
+📥 Exported Visuals: `Tea_Performance_Task_PowerBI Dashboard visuals.pdf`
 
 ---
 
-**📌 Note**: For full details, refer to the `TEA_Narrative_Analysis.docx` or SAS code (if provided).  
+## 4. **📁 File Inventory**
+
+| File Name                               | Description                                                                 |
+|----------------------------------------|-----------------------------------------------------------------------------|
+| `district_staar_22-23.csv`             | Raw STAAR performance (math/reading by grade and district)                 |
+| `grant_district_list.xlsx`             | Districts receiving TEA grant funding                                      |
+| `All_districts_info_22-23.xlsx`        | Demographic data (economically disadvantaged, emergent bilingual)         |
+| `Final_Analysis_Cleaned.csv`           | Final cleaned dataset for visuals                                          |
+| `TEA_Narrative_Analysis.pdf`           | Full narrative analysis (includes visuals + findings)                      |
+| `Tea_Performance_Task.pbix`            | Power BI dashboard (interactive)                                           |
+| `Tea_Performance_Task_PowerBI Dashboard visuals.pdf` | Dashboard visuals exported as PDF                              |
+| `district_staar_22-23_dictionary.xlsx` | Data dictionary for variable references                                    |
+| `TEA_SAS_Code.sas`                     | Complete SAS script (import, transform, analyze, export)                  |
+
+---
+
+## 5. **⚙️ Reproduction Instructions**
+
+### 🔷 In SAS (`TEA_SAS_Code.sas`):
+1. Import files: `district_staar_22-23.csv`, `grant_district_list.xlsx`, `All_districts_info_22-23.xlsx`
+2. Filter for 3rd–5th grade math records
+3. Create `% Meets` metric → `percent_meets_math`
+4. Aggregate district averages with `PROC SQL`
+5. Convert district ID to `district_char` format
+6. Merge grant list and demographics
+7. Drop missing records
+8. Run:
+   - `PROC TTEST`  
+   - `PROC MEANS`  
+   - SAS Visuals: `PROC SGPLOT`  
+9. Export final dataset: `Final_Analysis_Cleaned.csv`
+
+### 🔶 In Power BI (`Tea_Performance_Task.pbix`):
+1. Import `Final_Analysis_Cleaned.csv`
+2. Create DAX measures for:
+   - Avg % Meets (Grant/Non-Grant)
+   - Difference
+3. Build visuals:
+   - KPI Cards
+   - Pie Chart (Performance Bands)
+   - Line Chart (ESC Region)
+   - Table with slicers
+4. Add tooltips, conditional formatting, slicers for interactivity
+
+---
+
+## 6. **✅ Best Practices Demonstrated**
+
+| Category                | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| 🧱 **Modular Coding**     | SAS code separated by steps: import, transform, merge, analyze              |
+| 🧾 **Documentation**     | Inline comments, variable labels, labeled Power BI fields                  |
+| 📈 **Statistical Analysis** | Use of t-test, distribution checks, descriptive stats                    |
+| 🧠 **Insight Communication** | Visual + narrative alignment in both SAS & Power BI                     |
+| 🤝 **Collaboration-Ready** | Structured outputs, organized file names, README & Narrative files         |
+
+---
+
+> 📌 *For detailed analysis, visual explanation, and documentation of methodology, please refer to* `TEA_Narrative_Analysis.pdf`.
+
+---
