@@ -1,1 +1,1 @@
-TEA Strategic Compensation Performance Task
+**TEA Strategic Compensation Performance Task**
