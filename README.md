@@ -7,7 +7,7 @@ This project analyzes the effectiveness of the **Texas Education Agency's (TEA) 
 Determine whether grant-receiving districts outperformed non-participating districts in the **2022–2023 STAAR assessments**.
 
 **🛠 Tools Used:**  
-- **SAS**: Data cleaning, transformation, and statistical analysis  
+- **SAS**: Data cleaning, transformation, statistical analysis, and Data Visualization
 - **Power BI**: Visualizations and interactive dashboards  
 - **Narrative Report**: Full documentation of methodology and findings  
 
