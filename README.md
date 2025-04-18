@@ -148,6 +148,15 @@ To validate our findings and adjust for potential confounders, we ran a **Multip
 - **Grant status** was **not statistically significant** after adjusting for demographics.
 - **Percent Economically Disadvantaged** was highly significant (p < 0.0001).
 - R-squared ≈ **0.30**, suggesting good model fit for education data.
+
+---
+
+## ✅ Conclusion
+
+This project provides a comprehensive evaluation of TEA’s Strategic Compensation Grant using SAS and Power BI. While initial t-tests indicated that non-grant districts performed better in 3rd–5th grade STAAR math outcomes, further regression analysis suggested that this performance gap may be more strongly associated with socioeconomic factors particularly economic disadvantage than with grant participation itself.
+
+📌 These findings reinforce the importance of **contextual program evaluation**, and the need to control for demographic factors when interpreting the effectiveness of education policy initiatives.
+
 - Interpretation: Differences in performance may be more driven by socioeconomic factors than grant participation itself.
 
 
