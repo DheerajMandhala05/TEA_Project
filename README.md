@@ -76,7 +76,7 @@ Determine whether grant-receiving districts outperformed non-participating distr
 - **Slicer Filters** – ESC Region, District Type
 - **Icons & Tooltips** – Enhance user navigation and explanations
 
-📥 Exported Visuals: `Tea_Performance_Task_PowerBI Dashboard visuals.pdf`
+📥 Visuals Created in Power BI Dashboard: Power BI Dashboard.pbix
 
 ---
 
@@ -90,7 +90,6 @@ Determine whether grant-receiving districts outperformed non-participating distr
 | `Final_Analysis_Cleaned.csv`           | Final cleaned dataset for visuals                                          |
 | `TEA_Narrative_Analysis.pdf`           | Full narrative analysis (includes visuals + findings)                      |
 | `Power BI Dashboard.pbix`            | Power BI dashboard (interactive)                                           |
-| `Tea_Performance_Task_PowerBI Dashboard visuals.pdf` | Dashboard visuals exported as PDF                              |
 | `district_staar_22-23_dictionary.xlsx` | Data dictionary for variable references                                    |
 | `TEA_SAS_Code.sas`                     | Complete SAS script (import, transform, analyze, export)                  |
 
