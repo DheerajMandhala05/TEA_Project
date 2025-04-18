@@ -137,6 +137,20 @@ Determine whether grant-receiving districts outperformed non-participating distr
 
 ---
 
+### Additional Regression Analysis (Accuracy Check)
+To validate our findings and adjust for potential confounders, we ran a **Multiple Linear Regression (MLR)** model with:
+
+- Grant Participation (binary)
+- Percent Economically Disadvantaged
+- Percent Emergent Bilingual
+
+🔍 **Findings**:
+- **Grant status** was **not statistically significant** after adjusting for demographics.
+- **Percent Economically Disadvantaged** was highly significant (p < 0.0001).
+- R-squared ≈ **0.30**, suggesting good model fit for education data.
+- Interpretation: Differences in performance may be more driven by socioeconomic factors than grant participation itself.
+
+
 > 📌 *For detailed analysis, visual explanation, and documentation of methodology, please refer to* `TEA_Narrative_Analysis.pdf`.
 
 ---
