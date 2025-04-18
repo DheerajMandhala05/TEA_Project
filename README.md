@@ -17,7 +17,7 @@ Determine whether grant-receiving districts outperformed non-participating distr
 - `All_districts_info_22-23.xlsx` – District demographics  
 - `Final_Analysis_Cleaned.csv` – Final dataset for visuals  
 - `TEA_Narrative_Analysis.pdf` – Full narrative analysis  
-- `Tea_Performance_Task.pbix` – Power BI dashboard  
+- `Power BI Dashboard.pbix` – Power BI dashboard  
 - `TEA_SAS_Code.sas` – Reproducible SAS code  
 - `district_staar_22-23_dictionary.xlsx` – Variable reference dictionary  
 
@@ -65,7 +65,7 @@ Determine whether grant-receiving districts outperformed non-participating distr
 - 📈 **Bar Chart** – Mean performance by grant status  
 - 📋 **PROC MEANS Table** – Summary statistics  
 
-### **📊 Power BI Dashboard** (`Tea_Performance_Task.pbix`)
+### **📊 Power BI Dashboard** (`Power BI Dashboard.pbix`)
 - **KPI Cards** – Grant: 37.5%, Non-Grant: 40.9%, Difference: +3.4%
 - **Pie Chart** – Distribution across performance bands:
   - High ≥ 60%
@@ -89,7 +89,7 @@ Determine whether grant-receiving districts outperformed non-participating distr
 | `All_districts_info_22-23.xlsx`        | Demographic data (economically disadvantaged, emergent bilingual)         |
 | `Final_Analysis_Cleaned.csv`           | Final cleaned dataset for visuals                                          |
 | `TEA_Narrative_Analysis.pdf`           | Full narrative analysis (includes visuals + findings)                      |
-| `Tea_Performance_Task.pbix`            | Power BI dashboard (interactive)                                           |
+| `Power BI Dashboard.pbix`            | Power BI dashboard (interactive)                                           |
 | `Tea_Performance_Task_PowerBI Dashboard visuals.pdf` | Dashboard visuals exported as PDF                              |
 | `district_staar_22-23_dictionary.xlsx` | Data dictionary for variable references                                    |
 | `TEA_SAS_Code.sas`                     | Complete SAS script (import, transform, analyze, export)                  |
@@ -112,7 +112,7 @@ Determine whether grant-receiving districts outperformed non-participating distr
    - SAS Visuals: `PROC SGPLOT`  
 9. Export final dataset: `Final_Analysis_Cleaned.csv`
 
-### 🔶 In Power BI (`Tea_Performance_Task.pbix`):
+### 🔶 In Power BI (`Power BI Dashboard.pbix`):
 1. Import `Final_Analysis_Cleaned.csv`
 2. Create DAX measures for:
    - Avg % Meets (Grant/Non-Grant)
